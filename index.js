@@ -14,6 +14,7 @@ if ('serviceWorker' in navigator) {
 // Code to handle install prompt on desktop
 let deferredPrompt;
 const addBtn = document.querySelector('.add-button');
+addBtn.style.display = 'none';
 
 window.addEventListener('beforeinstallprompt', (e) => {
     // Prevent Chrome 67 and earlier from automatically showing the prompt
@@ -22,7 +23,6 @@ window.addEventListener('beforeinstallprompt', (e) => {
     deferredPrompt = e;
 
     addBtn.addEventListener('click', () => {
-        console.log('fired');
 
         // Show the prompt
         deferredPrompt.prompt();
@@ -57,8 +57,6 @@ $(document).ready(function () {
         reverseButtons: true
     }).then((result) => {
         if (result.isConfirmed) {
-
-            console.log($('#addButton'));
 
             $('#addButton').click();
 
