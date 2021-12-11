@@ -12,7 +12,7 @@ const swalWithBootstrapButtons = Swal.mixin({
 })
 
 // Code to handle install prompt on desktop
-const deferredPrompt;
+let deferredPrompt;
 
 (function () {
 
