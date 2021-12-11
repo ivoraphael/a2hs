@@ -15,8 +15,10 @@ img {
 
 .add-button {
   position: absolute;
-  top: 1px;
-  left: 1px;
+  height:100px;
+  width:100px;
+  top: 50px;
+  left: 50px;
 }
 
 @media (orientation: landscape) {
