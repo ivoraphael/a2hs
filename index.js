@@ -3,22 +3,7 @@ window.onerror = function (msg, url, linenumber) {
     return true;
 }
 
-// Register service worker to control making site work offline
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker
-        .register('sw.js')
-        .then(() => { console.log('Service Worker Registered'); });
-}
 
-// Code to handle install prompt on desktop
-let deferredPrompt;
-
-window.addEventListener('beforeinstallprompt', (e) => {
-    // Prevent Chrome 67 and earlier from automatically showing the prompt
-    e.preventDefault();
-    // Stash the event so it can be triggered later.
-    deferredPrompt = e;
-});
 
 const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
@@ -40,6 +25,23 @@ const swalWithBootstrapButtons = Swal.mixin({
         reverseButtons: true
     }).then((result) => {
         if (result.isConfirmed) {
+
+            // Register service worker to control making site work offline
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker
+                    .register('sw.js')
+                    .then(() => { console.log('Service Worker Registered'); });
+            }
+
+            // Code to handle install prompt on desktop
+            let deferredPrompt;
+
+            window.addEventListener('beforeinstallprompt', (e) => {
+                // Prevent Chrome 67 and earlier from automatically showing the prompt
+                e.preventDefault();
+                // Stash the event so it can be triggered later.
+                deferredPrompt = e;
+            });
 
             // Show the prompt
             deferredPrompt.prompt();
