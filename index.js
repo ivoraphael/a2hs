@@ -12,16 +12,16 @@ const swalWithBootstrapButtons = Swal.mixin({
 })
 
 // Code to handle install prompt on desktop
-let deferredPrompt;
-
-window.addEventListener('beforeinstallprompt', (e) => {
-    // Prevent Chrome 67 and earlier from automatically showing the prompt
-    e.preventDefault();
-    // Stash the event so it can be triggered later.
-    deferredPrompt = e;
-});
+const deferredPrompt;
 
 (function () {
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+        // Prevent Chrome 67 and earlier from automatically showing the prompt
+        e.preventDefault();
+        // Stash the event so it can be triggered later.
+        deferredPrompt = e;
+    });
 
     swalWithBootstrapButtons.fire({
         title: 'Adicionar atalho em sua tela inicial?',
