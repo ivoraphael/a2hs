@@ -47,23 +47,59 @@ const swalWithBootstrapButtons = Swal.mixin({
 })
 
 $(document).ready(function () {
-    swalWithBootstrapButtons.fire({
-        title: 'Adicionar atalho em sua tela inicial?',
-        text: "Sua escolha ficara salva!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Adicionar atalho!',
-        cancelButtonText: 'Nao adicionar atalho.',
-        reverseButtons: true
-    }).then((result) => {
-        if (result.isConfirmed) {
-
-            $('#addButton').click();
-
-        } else if (
-            result.dismiss === Swal.DismissReason.cancel
-        ) {
-            Swal.fire('Atalho nao adicionado!');
-        }
-    })
+    checkCookie();
 });
+
+function checkCookie() {
+    let username = getCookie("a2hsResponse");
+    if (username != "") {
+        alert('a2hsResponse already answered');
+        //console.log('a2hsResponse already answered');
+    } else {
+
+        swalWithBootstrapButtons.fire({
+            title: 'Adicionar atalho em sua tela inicial?',
+            text: "Sua escolha ficara salva!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Adicionar atalho!',
+            cancelButtonText: 'Nao adicionar atalho.',
+            reverseButtons: true
+        }).then((result) => {
+            setCookie("a2hsResponse", "true", 365);
+            if (result.isConfirmed) {
+
+                $('#addButton').click();
+
+            } else if (
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                Swal.fire('Atalho nao adicionado!');
+            }
+        })
+
+    }
+}
+
+function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    let expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
