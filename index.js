@@ -65,11 +65,11 @@ function checkCookie() {
             imageWidth: 200,
             imageHeight: 200,
             imageAlt: 'Custom image',
-            showDenyButton: true,
+            showCancelButton: true,
             confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
             confirmButtonText: 'Adicionar na tela inicial',
-            denyButtonText: 'Cancelar',
-            reverseButtons: true
+            cancelButtonText: 'Cancelar'
         }).then((result) => {
             setCookie("a2hsResponse", "true", 365);
             if (result.isConfirmed) {
