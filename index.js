@@ -57,6 +57,7 @@ function checkCookie() {
         //console.log('a2hsResponse already answered');
     } else {
 
+
         Swal.fire({
             title: 'Adicionar o Freto na sua tela inicial?',
             text: "Acesse o Freto de forma rápida e fácil na tela inicial do seu celular.",
