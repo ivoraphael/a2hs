@@ -38,13 +38,13 @@ window.addEventListener('beforeinstallprompt', (e) => {
     });
 });
 
-const swalWithBootstrapButtons = Swal.mixin({
-    customClass: {
-        confirmButton: 'btn btn-success',
-        cancelButton: 'btn btn-danger'
-    },
-    buttonsStyling: false
-})
+//const swalWithBootstrapButtons = Swal.mixin({
+//    customClass: {
+//        confirmButton: 'btn btn-success',
+//        cancelButton: 'btn btn-danger'
+//    },
+//    buttonsStyling: false
+//})
 
 $(document).ready(function () {
     checkCookie();
@@ -57,7 +57,7 @@ function checkCookie() {
         //console.log('a2hsResponse already answered');
     } else {
 
-        swalWithBootstrapButtons.fire({
+        Swal.fire({
             title: 'Adicionar o Freto na sua tela inicial?',
             text: "Acesse o Freto de forma rápida e fácil na tela inicial do seu celular.",
             imageUrl: 'https://www.freto.com/Login/Images/favicon/favicon.ico',
@@ -65,8 +65,10 @@ function checkCookie() {
             imageHeight: 200,
             imageAlt: 'Custom image',
             showCancelButton: true,
-            confirmButtonText: 'Adicionar atalho!',
-            cancelButtonText: 'Nao adicionar atalho.',
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Adicionar na tela inicial',
+            cancelButtonText: 'Cancelar',
             reverseButtons: true
         }).then((result) => {
             setCookie("a2hsResponse", "true", 365);
