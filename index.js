@@ -58,9 +58,12 @@ function checkCookie() {
     } else {
 
         swalWithBootstrapButtons.fire({
-            title: 'Adicionar atalho em sua tela inicial?',
-            text: "Sua escolha ficara salva!",
-            icon: 'warning',
+            title: 'Adicionar o Freto na sua tela inicial?',
+            text: "Acesse o Freto de forma rápida e fácil na tela inicial do seu celular.",
+            imageUrl: 'https://www.freto.com/Login/Images/favicon/favicon.ico',
+            imageWidth: 200,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
             showCancelButton: true,
             confirmButtonText: 'Adicionar atalho!',
             cancelButtonText: 'Nao adicionar atalho.',
