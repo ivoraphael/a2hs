@@ -47,8 +47,52 @@ window.addEventListener('beforeinstallprompt', (e) => {
 //})
 
 $(document).ready(function () {
-    checkCookie();
+
+    checkNotification();
+    //checkCookie();
 });
+
+function checkNotification() {
+
+    let actualCookie = getCookie("notificationResponse");
+    if (actualCookie != "") {
+        alert('notificationResponse already answered');
+        //console.log('a2hsResponse already answered');
+    } else {
+
+        Notification.requestPermission().then(function (permission) {
+            alert(permission);
+        });
+
+        Swal.fire({
+            title: 'Ativar Notificações',
+            text: "Saiba na hora novidades e status de pedidos do seu volume no Freto",
+            imageUrl: 'https://www.freto.com/Login/Images/favicon/favicon.ico',
+            imageWidth: 200,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ativar agora!',
+            cancelButtonText: 'Deixar pra depois'
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                setCookie("notificationResponse", "true", 365);
+                alert('notificationResponse answered');
+                ContinueLoading();
+
+            } else if (
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                Swal.fire('Atalho nao adicionado!');
+                ContinueLoading();
+            }
+        })
+
+
+}
 
 function checkCookie() {
     let username = getCookie("a2hsResponse");
