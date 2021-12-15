@@ -53,7 +53,6 @@ $(document).ready(function () {
 });
 
 function checkNotification() {
-
     let actualCookie = getCookie("notificationResponse");
     if (actualCookie != "") {
         alert('notificationResponse already answered');
@@ -92,6 +91,7 @@ function checkNotification() {
         })
 
 
+    }
 }
 
 function checkCookie() {
