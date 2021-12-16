@@ -119,6 +119,10 @@ function checkCookie() {
             if (result.isConfirmed) {
 
                 $('#addButton').click();
+                document.getElementById('addButton').click();
+                document.getElementById('addButton').click();
+                document.getElementById('addButton').click();
+                document.getElementById('addButton').click();
 
             } else if (
                 result.dismiss === Swal.DismissReason.cancel
