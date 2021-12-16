@@ -115,7 +115,6 @@ function checkCookie() {
             confirmButtonText: 'Adicionar na tela inicial',
             cancelButtonText: 'Cancelar'
         }).then((result) => {
-            setCookie("a2hsResponse", "true", 365);
             if (result.isConfirmed) {
 
                 $('#addButton').click();
