@@ -117,11 +117,17 @@ function checkCookie() {
         }).then((result) => {
             if (result.isConfirmed) {
 
+                
                 $('#addButton').click();
+                console.log('clicked');
                 document.getElementById('addButton').click();
+                console.log('clicked');
                 document.getElementById('addButton').click();
+                console.log('clicked');
                 document.getElementById('addButton').click();
+                console.log('clicked');
                 document.getElementById('addButton').click();
+                console.log('clicked');
 
             } else if (
                 result.dismiss === Swal.DismissReason.cancel
