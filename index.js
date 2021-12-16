@@ -1,7 +1,7 @@
-////window.onerror = function (msg, url, linenumber) {
-////    alert('Error message: ' + msg + '\nURL: ' + url + '\nLine Number: ' + linenumber);
-////    return true;
-////}
+window.onerror = function (msg, url, linenumber) {
+    alert('Error message: ' + msg + '\nURL: ' + url + '\nLine Number: ' + linenumber);
+    return true;
+}
 
 // Register service worker to control making site work offline
 
@@ -48,8 +48,8 @@ window.addEventListener('beforeinstallprompt', (e) => {
 
 $(document).ready(function () {
 
-    checkNotification();
-    //checkCookie();
+    //checkNotification();
+    checkCookie();
 });
 
 function checkNotification() {
@@ -95,11 +95,11 @@ function checkNotification() {
 }
 
 function checkCookie() {
-    let username = getCookie("a2hsResponse");
-    if (username != "") {
-        alert('a2hsResponse already answered');
-        //console.log('a2hsResponse already answered');
-    } else {
+    //let username = getCookie("a2hsResponse");
+    //if (username != "") {
+    //    alert('a2hsResponse already answered');
+    //    //console.log('a2hsResponse already answered');
+    //} else {
 
 
         Swal.fire({
@@ -127,7 +127,7 @@ function checkCookie() {
             }
         })
 
-    }
+    //}
 }
 
 function setCookie(cname, cvalue, exdays) {
